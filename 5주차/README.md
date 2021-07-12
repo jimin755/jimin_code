@@ -1,5 +1,21 @@
 #5     
-2096_내려가기     
+2096_내려가기       
+maxDp[y][0] = max(maxDp[y-1][0], maxDp[y-1][1])          
+maxDp[y][1] = max(maxDp[y-1][0], max(maxDp[y-1][1], maxDp[y-1][2]))      
+maxDp[y][2] = max(maxDp[y-1][2], maxDp[y-1][1])        
+
+minDp[y][0] = min(minDp[y-1][0], minDp[y-1][1])        
+minDp[y][1] = min(minDp[y-1][0], min(minDp[y-1][1], maxDp[y-1][2]))      
+minDp[y][2] = min(minDp[y-1][2], minDp[y-1][1])     
+이다    
+
+하지만 이렇게만 하면 메모리 초과가 뜬다     
+
+그래서 저렇게 보면 dp에서도 전에 y와 y-1번째 배열들만 사용하기 때문에      
+y=1로 고정하여 배열 원소의 개수를 6개로 고정하고    
+
+점화식 후 y=1인 배열의 값들을 y=0인 배열에 복사해준다.    
+
 9251_LCS     
 
 
