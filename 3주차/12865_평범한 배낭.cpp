@@ -4,9 +4,9 @@
 using namespace std;
 
 int n, k;
-int d[100001];  // °¡¹æ ¿ë·®
-int w[101];     // ¹°°ÇÀÇ ¹«°Ô
-int v[101];     // ¹°°ÇÀÇ °¡Ä¡
+int d[100001];  // ê°€ë°© ìš©ëŸ‰
+int w[101];     // ë¬¼ê±´ì˜ ë¬´ê²Œ
+int v[101];     // ë¬¼ê±´ì˜ ê°€ì¹˜
 
 void dp() {
     for (int i = 1; i <= n; i++) {
@@ -21,7 +21,7 @@ void dp() {
 }
 
 int main(int argc, const char* argv[]) {
-    // cin,cout ¼ÓµµÇâ»ó
+    // cin,cout ì†ë„í–¥ìƒ
     ios_base::sync_with_stdio(false);
     cin.tie(NULL); cout.tie(NULL);
 
