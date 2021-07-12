@@ -3,7 +3,7 @@
 
 using namespace std;
 
-//¸Þ¸ð¸®¸¦ ÁÙ¿©º¸·ÁÇßÀ¸³ª ÁÙ¿©ÁöÁö ¾Ê¾ÒÀ½
+//ë©”ëª¨ë¦¬ë¥¼ ì¤„ì—¬ë³´ë ¤í–ˆìœ¼ë‚˜ ì¤„ì—¬ì§€ì§€ ì•Šì•˜ìŒ
 
 
 int main(void) {
