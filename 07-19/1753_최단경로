@@ -1,0 +1,57 @@
+#include<iostream>
+#include<vector>
+#include<queue>
+#include<queue>
+#include<string>
+
+using namespace std;
+
+
+int main(void) {
+	int v = 0, e = 0, k = 0;
+	cin >> v >> e;
+	cin >> k;
+	vector < vector<pair<int, int>>> routeMap(v);
+
+	for (int i = 0; i < e; i++) {
+		int x = 0, y = 0, w = 0;
+		cin >> y >> x >> w;
+		routeMap.at(y - 1).push_back(make_pair(w, x-1));
+	}
+	vector<int>route(v, 9999999);
+
+	priority_queue<pair<int,int>> que;
+	que.push(make_pair(0, k - 1));
+	route.at(k - 1) = 0;
+	while (!que.empty()) {
+		int startP = que.top().second;
+		int sW = -que.top().first;
+		que.pop();
+
+		if (route.at(startP) < sW) {
+			continue;
+		}
+
+		for (int i = 0; i < routeMap.at(startP).size(); i++) {
+			int next_v = routeMap.at(startP).at(i).second;
+			int next_w = sW + routeMap.at(startP).at(i).first;
+			if (route.at(next_v) > next_w) {
+				route.at(next_v) = next_w;
+				que.push(make_pair(-next_w ,next_v));
+			}
+
+		}
+	}
+
+	for (int i = 0; i < v; i++) {
+		if (route.at(i) == 9999999) {
+			printf("%s\n", "INF");
+			//cout << "INF" << endl;
+		}
+		else {
+			printf("%d\n", route.at(i));
+			//cout << route.at(i) << endl;
+		}
+	}
+	return 0;
+}
