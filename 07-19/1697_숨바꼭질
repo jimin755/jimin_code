@@ -1,0 +1,37 @@
+#include<iostream>
+#include<queue>
+#include<vector>
+
+using namespace std;
+
+int main(void) {
+	int n = 0, k = 0, sTime = 0;
+	cin >> n >> k;
+
+	vector<bool> check(100001, true);
+
+	queue<pair<int, int>> que;
+	que.push(make_pair(0, n));
+	check.at(n) = false;
+
+	while (n != k) {
+		n = que.front().second;
+		sTime = que.front().first;
+		que.pop();
+		if ( 0 <= n - 1 && check.at(n - 1)) {
+			que.push(make_pair(sTime + 1, n - 1));
+			check.at(n - 1) = false;
+		}
+		if (n+1 <= 100000 && check.at(n + 1)) {
+			que.push(make_pair(sTime + 1, n + 1));
+			check.at(n + 1) = false;
+		}
+		if (n*2 <= 100000 && check.at(n * 2 )) {
+			que.push(make_pair(sTime + 1, n * 2));
+			check.at(n*2) = false;
+		}
+	}
+
+	cout << sTime;
+	return 0;
+}
